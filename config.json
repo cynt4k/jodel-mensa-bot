@@ -1,0 +1,39 @@
+{
+  "location": {
+    "lat": 49.003414,
+    "lng": 12.097601,
+    "city": "Regensburg"
+  },
+  "jodel": {
+    "account": {
+      "expiration_date": 1531059805,
+      "distinct_id": "5b38e3d33d148a0015b21dd9",
+      "refresh_token": "0b29d345-5d81-46b5-aa14-309d77b5e790",
+      "device_uid": "bd142029b79fcb4ace9f895c30eceb8a3419aea89334d8b030fe8c8afc39c4f9",
+      "access_token": "55005378-773ba485-ef88a8f8-f445-4aec-9cde-250e93d5afbc",
+      "is_legacy": false
+    },
+    "android": {
+      "id": 3755919539868113561,
+      "token": 3990021657503116542
+    }
+  },
+  "mensas": [
+    {
+      "id": "reg1",
+      "type": "main",
+      "date": {
+        "repeat": "daily",
+        "time": "10:00"
+      }
+    },
+    {
+      "id": "reg7",
+      "type": "main",
+      "date": {
+        "repeat": "weekly",
+        "time": "09:00"
+      }
+    }
+  ]
+}

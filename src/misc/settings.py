@@ -6,6 +6,8 @@ import src.api as api
 import jodel_api
 import json
 
+config = ""
+
 def init(path):
     env = ""
     env_path = ""
@@ -27,19 +29,20 @@ def init(path):
 
     load_dotenv(dotenv_path=env_path)
     try:
-        jodel_api.JodelAccount.secret = os.environ["JODEL_APIKEY"]
+        jodel_api.JodelAccount.secret = os.environ["JODEL_APIKEY"].encode('ascii')
         jodel_api.JodelAccount.version = os.environ["JODEL_VERSION"]
         api.MensaApi.baseurl = os.environ["MENSA_API_URL"] + "/"
     except KeyError as e:
         print("Environment variable " + str(e) + " not defined")
 
 
-
-
-
 def parseconfig(file):
-    config = configparser.ConfigParser()
     with open(file, "r") as f:
         config = json.load(f)
+        return config
 
-    return config
+
+
+def writeconfig(data):
+    with open(config, "w") as f:
+        json.dump(data, f)

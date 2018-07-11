@@ -1,7 +1,7 @@
 import requests
 import json
 
-class MensaApi(object):
+class MensaApi():
 
     baseurl = ""
     headers = {"Content-Type": "application/json"}

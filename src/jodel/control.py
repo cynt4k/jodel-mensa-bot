@@ -2,6 +2,7 @@ import jodel_api
 import time
 import schedule
 from threading import Thread
+from src.misc import settings
 
 class JodelApi(jodel_api.JodelAccount):
 
@@ -33,7 +34,13 @@ class JodelApi(jodel_api.JodelAccount):
     def refresh_task(self):
         if self.need_refresh():
             data = self.refresh_access_token()
-            print(data)
+            if (data[0] != 200):
+                return Exception("Failed to refresh token")
+            self.access_token = data["access_token"]
+            self.expiration_date = data["expiration_date"]
+            print("New Jodel token: " + self.access_token + " and expiration date: " + str(self.expiration_date))
+            settings.writeconfig(self.config)
+
 
 
 
